@@ -42,6 +42,11 @@ public class HttpUtils {
 
         //创建httpGet请求对象，设置url地址
         HttpGet httpGet = new HttpGet(url);
+        /**
+         * <script>window.location.href='https://passport.jd.com/uc/login'</script>
+         * 添加的内容
+         */
+        httpGet.setHeader("User-Agent","Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:62.0) Gecko/20100101 Firefox/62.0");
 
         //设置请求信息
         httpGet.setConfig(this.getConfig());
@@ -115,7 +120,7 @@ public class HttpUtils {
 
                     //下载图片
                     //声明OutPutStream
-                    OutputStream outputStream = new FileOutputStream(new File("C:\\Users\\tree\\Desktop\\images\\" +
+                    OutputStream outputStream = new FileOutputStream(new File("E:\\tmp\\images\\" +
                             picName));
                     response.getEntity().writeTo(outputStream);
 
